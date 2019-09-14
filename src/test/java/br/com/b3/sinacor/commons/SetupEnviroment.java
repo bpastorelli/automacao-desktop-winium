@@ -7,6 +7,7 @@ import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
 
+
 public class SetupEnviroment {
 	
 	public static WiniumDriver driver;
@@ -24,7 +25,7 @@ public class SetupEnviroment {
 		
 		File driverPath = winiumDriverPath.getAbsoluteFile();
 		if(!driverPath.exists())
-			new Exception("O driver no path informado (" + driverPath + ") não existe!");
+			new Exception("O driver no path informado (" + driverPath + ") nï¿½o existe!");
 			
 		try {
 			service = new WiniumDriverService.Builder()

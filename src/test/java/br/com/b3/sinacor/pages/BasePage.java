@@ -16,6 +16,12 @@ public class BasePage extends SetupEnviroment {
 	public static WebElement element;
 	public static HashMap<String, Object> mapElements = new HashMap<String, Object>();
 	
+	/**
+	 * Adiciona um elemento mapeado ao mapa de elementos.
+	 * 
+	 * @param name Nome que será atribuido ao elemento.
+	 * @param by Condição de busca Id, Name e etc.
+	 */
 	public void addElement(String name, By by) {
 		
 		mapElements.put(name, by);
@@ -71,7 +77,6 @@ public class BasePage extends SetupEnviroment {
 			new Exception("Falha ao clicar no elemento " + element.getTagName() + ".");
 		}
 	}
-	
 	
 	protected void clickElement(By by) {
 		
