@@ -1,7 +1,9 @@
 package br.com.b3.sinacor.pages;
 
 import org.openqa.selenium.By;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CalculadoraPage extends BasePage {
 	
 	public CalculadoraPage() {

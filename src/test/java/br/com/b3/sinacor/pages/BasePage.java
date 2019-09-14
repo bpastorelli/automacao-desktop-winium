@@ -16,6 +16,12 @@ public class BasePage extends SetupEnviroment {
 	public static WebElement element;
 	public static HashMap<String, Object> mapElements = new HashMap<String, Object>();
 	
+	/**
+	 * Adiciona um elemento mapeado ao mapa de elementos.
+	 * 
+	 * @param name Nome que será atribuido ao elemento.
+	 * @param by Condição de busca Id, Name e etc.
+	 */
 	public void addElement(String name, By by) {
 		
 		mapElements.put(name, by);
@@ -46,7 +52,7 @@ public class BasePage extends SetupEnviroment {
 		try {
 			element = driver.findElement(by);	
 		}catch(Exception e) {
-			new Exception("Elemento " + by.toString() + "n�o encontrado.");
+			new Exception("Elemento " + by.toString() + "nao encontrado.");
 		}
 		
 		return element;
@@ -72,13 +78,12 @@ public class BasePage extends SetupEnviroment {
 		}
 	}
 	
-	
 	protected void clickElement(By by) {
 		
 		try {
 			findElement(by).click();
 		}catch(Exception e) {
-			new Exception("Falha ao clicar no elemento " + element.getTagName() + ".");
+			new Exception("Falha ao clicar no elemento " + by.toString() + ".");
 		}		
 	}
 	

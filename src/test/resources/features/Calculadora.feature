@@ -2,7 +2,7 @@
 Feature: Testando automacao Desktop com Winium
 
   @calculadora
-  Scenario: Testar calculos de adicao e subtracao
+  Scenario: Testar calculos de adicao
     Given Que eu digito o numero 1
     And Que eu digito o numero 3
     And Que eu digito o sinal de Adicionar
@@ -13,7 +13,7 @@ Feature: Testando automacao Desktop com Winium
     Then Recebo o resultado de 113
     
   @calculadora_examples
-  Scenario Outline: Testar calculos de adicao
+  Scenario Outline: Testar calculos da Calculadora
    	Given Que eu digito o numero <numero1>
    	And Que eu digito o sinal de <operacao>
    	And Que eu digito o numero <numero2>
