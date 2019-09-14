@@ -8,7 +8,10 @@
 	<name>Sinacor</name>
 
 	<properties>
-		<cucumber.version>1.2.5</cucumber.version>
+	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	   <maven.compiler.source>1.8</maven.compiler.source>
+	   <maven.compiler.target>1.8</maven.compiler.target>
+	   <cucumber.version>1.2.5</cucumber.version>
 	</properties>
 
 	<dependencies>
