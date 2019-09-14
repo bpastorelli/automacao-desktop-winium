@@ -46,7 +46,7 @@ public class BasePage extends SetupEnviroment {
 		try {
 			element = driver.findElement(by);	
 		}catch(Exception e) {
-			new Exception("Elemento " + by.toString() + "não encontrado.");
+			new Exception("Elemento " + by.toString() + "nao encontrado.");
 		}
 		
 		return element;
@@ -78,7 +78,7 @@ public class BasePage extends SetupEnviroment {
 		try {
 			findElement(by).click();
 		}catch(Exception e) {
-			new Exception("Falha ao clicar no elemento " + element.getTagName() + ".");
+			new Exception("Falha ao clicar no elemento " + by.toString() + ".");
 		}		
 	}
 	
