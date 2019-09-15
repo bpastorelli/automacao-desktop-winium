@@ -1,7 +1,5 @@
 package br.com.b3.sinacor.pages;
 
-import static org.junit.Assert.assertFalse;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import br.com.b3.sinacor.commons.SetupEnviroment;
+import br.com.b3.sinacor.reports.LogReport;
+import br.com.b3.sinacor.util.Utils;
 
 public class BasePage extends SetupEnviroment {
 	
@@ -39,8 +39,7 @@ public class BasePage extends SetupEnviroment {
 			By by = (By) mapElements.get(name);
 			element = driver.findElement(by);
 		}catch(Exception e) {
-			System.out.println(e.getMessage());
-			assertFalse(true);
+			LogReport.fail(e.getMessage());
 		}
 		
 		return element;
@@ -52,7 +51,7 @@ public class BasePage extends SetupEnviroment {
 		try {
 			element = driver.findElement(by);	
 		}catch(Exception e) {
-			new Exception("Elemento " + by.toString() + "nao encontrado.");
+			LogReport.fail("Elemento " + by.toString() + "nao encontrado.");
 		}
 		
 		return element;
@@ -74,7 +73,7 @@ public class BasePage extends SetupEnviroment {
 			element = getElement(name);
 			element.click();	
 		}catch(Exception e) {
-			new Exception("Falha ao clicar no elemento " + element.getTagName() + ".");
+			LogReport.fail("Falha ao clicar no elemento " + element.getTagName() + ".");
 		}
 	}
 	
@@ -83,7 +82,7 @@ public class BasePage extends SetupEnviroment {
 		try {
 			findElement(by).click();
 		}catch(Exception e) {
-			new Exception("Falha ao clicar no elemento " + by.toString() + ".");
+			LogReport.fail("Falha ao clicar no elemento " + by.toString() + ".");
 		}		
 	}
 	
@@ -93,7 +92,38 @@ public class BasePage extends SetupEnviroment {
 			element = getElement(name);
 			new Actions(driver).moveToElement(element).click().perform();
 		}catch(Exception e) {
-			new Exception("Falha ao clicar no elemento " + element.getTagName() + ".");
+			LogReport.fail("Falha ao clicar no elemento " + element.getTagName() + ".");
 		}
 	}
+	
+    public static boolean waitDisplayed(WebElement elemento, int time) {
+    	
+    	boolean retorno = false;
+    	for(int i = 0; i < time; i++) {
+    		if(!elemento.isDisplayed())
+    			Utils.wait(1);
+    		else
+    			return true;
+    	}
+    	
+    	if(!retorno)
+    		LogReport.fail("Elemento " + elemento + " nao encontrado (Timeout = " + time + ").");
+    	return retorno;
+    }
+    
+    public static boolean waitText(WebElement elemento, String texto, int time) {
+    	
+    	//Aguarda por determinado texto por at� o tempo informado na vari�vel time.
+    	boolean retorno = false;
+    	for(int i = 0; i < time; i++) {
+    		if(!elemento.getText().contains(texto))
+    			Utils.wait(1);
+    		else
+    			return true;
+    	}
+    	
+    	if(!retorno)
+    		LogReport.fail("Elemento " + elemento + " nao encontrado (Timeout = " + time + ").");
+    	return retorno;
+    }
 }

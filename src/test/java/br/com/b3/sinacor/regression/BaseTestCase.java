@@ -15,16 +15,16 @@ public class BaseTestCase {
 	public static SetupEnviroment setup = new SetupEnviroment();
 	
 	@BeforeClass
-	public static void getDriver() throws IOException {
+	public static void beforeClass() throws IOException {
 		
 		Property.loadProperties();
-		driver = setup.setupEnviroment();
+		setup.setupEnviroment();
+		
 	}
 	
 	@AfterClass
-	public static void finalizar() {
+	public static void afterClass() {
 		
-		driver.close();
+		setup.getDriver().close();
 	}
-
 }
