@@ -19,9 +19,9 @@ public class ActionsSinacor {
 		calculadoraPage.clicarSinalAdicao(sinal);
 	}
 	
-	public void validarResultado(String resultado) {
+	public void validarResultado(String resultado, String operacao) {
 		
-		LogReport.passFail(Objects.equals(resultado, calculadoraPage.retornaValorDisplay(resultado)), "Validar resultado da conta");
+		LogReport.passFail(Objects.equals(resultado, calculadoraPage.retornaValorDisplay(resultado)), "Validar resultado da operacao: " + operacao + "<br>-Esperado: " + resultado + "<br>-Retornado: " + calculadoraPage.retornaValorDisplay(resultado));
 	}
 	
 }

@@ -11,7 +11,7 @@ Feature: Testando automacao Desktop com Winium
     And Que eu digito o numero 0
     And Que eu digito o numero 0
     And Que eu digito o sinal de Igual a
-    Then Recebo o resultado de 113
+    Then Recebo o resultado de 113 da operacao Adicionar
     
   @calculadora_examples
   Scenario Outline: Testar calculos da Calculadora
@@ -20,7 +20,7 @@ Feature: Testando automacao Desktop com Winium
    	And Que eu digito o sinal de <operacao>
    	And Que eu digito o numero <numero2>
    	And Que eu digito o sinal de Igual a
-   	Then Recebo o resultado de <resultado>
+   	Then Recebo o resultado de <resultado> da operacao <operacao>
    		
    	Examples:
    		| operacao    | numero1  | numero2 | resultado | 

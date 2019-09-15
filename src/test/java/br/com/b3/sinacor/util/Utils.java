@@ -11,7 +11,7 @@ public class Utils {
     	
     	LocalDateTime dataHoraAgora = LocalDateTime.now();
     	DateTimeFormatter formatoDataHora = DateTimeFormatter.ofPattern("dd_MM_yy_HH_mm_ss");
-    	String strLogFormatado = strLog + "_" + dataHoraAgora.format(formatoDataHora);
+    	String strLogFormatado = strLog.replace(" ", "_") + "_" + dataHoraAgora.format(formatoDataHora);
     	return strLogFormatado;
     }
     
