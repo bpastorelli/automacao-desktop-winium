@@ -26,7 +26,7 @@ public class SetupEnviroment {
 		File driverPath = winiumDriverPath.getAbsoluteFile();
 		if(!driverPath.exists())
 			new Exception("O driver no path informado (" + driverPath + ") n�o existe!");
-			
+		
 		try {
 			service = new WiniumDriverService.Builder()
 					.usingDriverExecutable(driverPath)
@@ -43,7 +43,7 @@ public class SetupEnviroment {
 		return driver;
 	}
 	
-	public static WiniumDriver getDriver() {
+	public WiniumDriver getDriver() {
 		
 		return driver;
 	}

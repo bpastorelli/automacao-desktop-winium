@@ -65,7 +65,13 @@
 		    <version>2.1.8.RELEASE</version>
 		    <scope>test</scope>
 		</dependency>
-        
+	    
+	    <!-- ExtentReports -->
+	    <dependency>
+	  		<groupId>com.aventstack</groupId>
+	  		<artifactId>extentreports</artifactId>
+	  		<version>4.0.8</version>
+	  	</dependency>
 		
 	</dependencies>
 

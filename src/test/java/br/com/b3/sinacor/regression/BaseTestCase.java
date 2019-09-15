@@ -8,6 +8,7 @@ import org.openqa.selenium.winium.WiniumDriver;
 
 import br.com.b3.sinacor.commons.Property;
 import br.com.b3.sinacor.commons.SetupEnviroment;
+import br.com.b3.sinacor.reports.LogReport;
 
 public class BaseTestCase {
 	
@@ -15,16 +16,17 @@ public class BaseTestCase {
 	public static SetupEnviroment setup = new SetupEnviroment();
 	
 	@BeforeClass
-	public static void getDriver() throws IOException {
+	public static void beforeClass() throws IOException {
 		
 		Property.loadProperties();
-		driver = setup.setupEnviroment();
+		setup.setupEnviroment();
+		
 	}
 	
 	@AfterClass
-	public static void finalizar() {
+	public static void afterClass() {
 		
-		driver.close();
+		LogReport.finalizarReport();
+		setup.getDriver().close();
 	}
-
 }

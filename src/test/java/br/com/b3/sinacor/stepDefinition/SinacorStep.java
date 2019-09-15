@@ -21,10 +21,10 @@ public class SinacorStep {
 		actionsSinacor.digitarSinal(sinal);
 	}
 	
-	@Then("^Recebo o resultado de (.*)$")
-	public void recebo_o_resultado_de(String resultado) {
+	@Then("^Recebo o resultado de (.*) da operacao (.*)$")
+	public void recebo_o_resultado_de(String resultado, String operacao) {
 		
-		actionsSinacor.validarResultado(resultado);
+		actionsSinacor.validarResultado(resultado, operacao);
 	}
 	
 }

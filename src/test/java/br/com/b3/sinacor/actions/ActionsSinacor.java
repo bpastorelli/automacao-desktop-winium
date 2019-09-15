@@ -1,9 +1,9 @@
 package br.com.b3.sinacor.actions;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.Objects;
+
 import br.com.b3.sinacor.pages.CalculadoraPage;
+import br.com.b3.sinacor.reports.LogReport;
 
 public class ActionsSinacor {
 
@@ -19,9 +19,9 @@ public class ActionsSinacor {
 		calculadoraPage.clicarSinalAdicao(sinal);
 	}
 	
-	public void validarResultado(String resultado) {
+	public void validarResultado(String resultado, String operacao) {
 		
-		assertTrue("Validar resultado da conta", Objects.equals(resultado, calculadoraPage.retornaValorDisplay(resultado)));
+		LogReport.passFail(Objects.equals(resultado, calculadoraPage.retornaValorDisplay(resultado)), "Validar resultado da operacao: " + operacao + "<br>-Esperado: " + resultado + "<br>-Retornado: " + calculadoraPage.retornaValorDisplay(resultado));
 	}
 	
 }
