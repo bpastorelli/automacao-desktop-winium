@@ -164,5 +164,5 @@ public class BasePage extends SetupEnviroment {
     		LogReport.fail("[FALHA]Elemento " + elemento + " nao encontrado (Timeout = " + time + ").");
     	return retorno;
     }
-    
+   
 }

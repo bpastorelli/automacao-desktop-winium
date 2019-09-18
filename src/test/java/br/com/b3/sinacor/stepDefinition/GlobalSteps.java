@@ -9,5 +9,4 @@ public class GlobalSteps {
 	public void que_eu_quero_testar(String arg1) throws Throwable {
 		LogReport.createTest("Iniciando o Teste: " + arg1);
 	}
-	
 }
