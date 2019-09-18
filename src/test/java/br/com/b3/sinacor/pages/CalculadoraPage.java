@@ -6,11 +6,6 @@ import br.com.b3.sinacor.util.Utils;
 
 public class CalculadoraPage extends BasePage {
 	
-	public CalculadoraPage() {
-		
-		this.addElement("btnAdicao", By.name("Adicionar"));
-	}
-	
 	public void clicarNumero(String numero) {
 		
 		if(numero.length() > 1) {

@@ -26,5 +26,4 @@ public class SinacorStep {
 		
 		actionsSinacor.validarResultado(resultado, operacao);
 	}
-	
 }

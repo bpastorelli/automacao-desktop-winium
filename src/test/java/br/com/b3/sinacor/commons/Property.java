@@ -35,5 +35,4 @@ public abstract class Property {
 			e.printStackTrace();
 		}
 	}
-
 }

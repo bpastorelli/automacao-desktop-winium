@@ -19,6 +19,4 @@ format = {"pretty", "html:target/reports/cucumber/html",
 @ContextConfiguration(classes= AppConfiguration.class)
 public class CalculadoraTest extends BaseTestCase {
 	
-
-	
 }

@@ -113,5 +113,4 @@ public class LogReport {
 		
 		extentReport.flush();
 	}
-
 }

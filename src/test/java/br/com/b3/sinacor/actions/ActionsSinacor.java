@@ -26,5 +26,4 @@ public class ActionsSinacor {
 				+ "<br>-Esperado: " + resultado 
 				+ "<br>-Retornado: " + calculadoraPage.retornaValorDisplay(resultado));
 	}
-	
 }

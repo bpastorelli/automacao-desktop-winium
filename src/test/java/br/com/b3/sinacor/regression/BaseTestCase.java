@@ -30,5 +30,4 @@ public class BaseTestCase {
 		setup.driverClose();
 		setup.serviceStop();
 	}
-
 }
