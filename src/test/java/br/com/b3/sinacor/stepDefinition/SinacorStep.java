@@ -1,9 +1,9 @@
 package br.com.b3.sinacor.stepDefinition;
 
 import br.com.b3.sinacor.actions.ActionsSinacor;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class SinacorStep {
 	
@@ -15,7 +15,7 @@ public class SinacorStep {
 		actionsSinacor.digitarNumero(numero);
 	}
 	
-	@And("^Que eu digito o sinal de (.*)$")
+	@When("^Que eu digito o sinal de (.*)$")
 	public void que_eu_digito_o_sinal_de(String sinal) {
 		
 		actionsSinacor.digitarSinal(sinal);
@@ -26,5 +26,5 @@ public class SinacorStep {
 		
 		actionsSinacor.validarResultado(resultado, operacao);
 	}
-	
+
 }

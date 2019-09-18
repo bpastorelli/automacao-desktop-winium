@@ -28,9 +28,9 @@ public abstract class Property {
 		
 		try {
 			Properties properties = getProp();
-			APP_PATH = properties.getProperty("application.path");
-			WINIUM_PATH = properties.getProperty("winiumDriver.path");
-			WINIUM_PORT = properties.getProperty("winiumDriver.port");
+			APP_PATH           = properties.getProperty("application.path");
+			WINIUM_PATH        = properties.getProperty("winiumDriver.path");
+			WINIUM_PORT        = properties.getProperty("winiumDriver.port");
 			HTML_REPORTER_NAME = properties.getProperty("extent.report.name");
 			HTML_REPORTER_PATH = properties.getProperty("extent.report.path");
 			HTML_REPORTER_TITLE = properties.getProperty("extent.report.title");
@@ -39,5 +39,4 @@ public abstract class Property {
 			e.printStackTrace();
 		}
 	}
-
 }

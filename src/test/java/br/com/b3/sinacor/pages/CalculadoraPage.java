@@ -1,14 +1,16 @@
 package br.com.b3.sinacor.pages;
 
-import org.openqa.selenium.By;
-import org.springframework.stereotype.Component;
+import java.util.Objects;
 
-@Component
+import org.openqa.selenium.By;
+
+import br.com.b3.sinacor.util.Utils;
+
 public class CalculadoraPage extends BasePage {
 	
 	public CalculadoraPage() {
 		
-		this.addElement("btnAdicao", By.name("Adicionar"));
+		this.addElement("btnMaximize", By.id("Maximize"));
 	}
 	
 	public void clicarNumero(String numero) {
@@ -16,10 +18,10 @@ public class CalculadoraPage extends BasePage {
 		if(numero.length() > 1) {
 			for (int i = 0; i < numero.length(); i++) {
 				char c = numero.charAt(i);
-				clickElement(By.name(String.valueOf(c)));
+				clickElement(By.name(Utils.convertNumeroToNome(String.valueOf(c))));
 			}
 		} else {
-			clickElement(By.name(numero));
+			clickElement(By.name(Utils.convertNumeroToNome(numero)));
 		}
 	}
 	
@@ -30,7 +32,6 @@ public class CalculadoraPage extends BasePage {
 	
 	public String retornaValorDisplay(String resultado) {
 		
-		return findElement(By.id("150")).getAttribute("Name");
+		return findElement(By.name(resultado)).getAttribute("Name");
 	}
-
 }

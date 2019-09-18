@@ -13,6 +13,7 @@ import br.com.b3.sinacor.reports.LogReport;
 public class BaseTestCase {
 	
 	public static WiniumDriver driver;
+	
 	public static SetupEnviroment setup = new SetupEnviroment();
 	
 	@BeforeClass
@@ -20,13 +21,13 @@ public class BaseTestCase {
 		
 		Property.loadProperties();
 		setup.setupEnviroment();
-		
 	}
 	
 	@AfterClass
-	public static void afterClass() {
+	public static void afterClass() throws IOException {
 		
 		LogReport.finalizarReport();
-		setup.getDriver().close();
+		setup.driverClose();
+		setup.serviceStop();
 	}
 }

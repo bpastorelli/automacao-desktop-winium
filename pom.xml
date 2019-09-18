@@ -72,7 +72,7 @@
 	  		<artifactId>extentreports</artifactId>
 	  		<version>4.0.8</version>
 	  	</dependency>
-		
+
 	</dependencies>
 
 </project>

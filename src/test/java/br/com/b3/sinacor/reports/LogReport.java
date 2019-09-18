@@ -26,6 +26,7 @@ public class LogReport {
 	private static ExtentTest extentTest;
 	private static ExtentReports extentReport;
 	private static ExtentHtmlReporter htmlReporter;
+	private static SetupEnviroment setup = new SetupEnviroment();
 	
 	public static ExtentTest getExtentTest() {
 		
@@ -51,8 +52,8 @@ public class LogReport {
 		ExtentTest extentTest = LogReport.getExtentTest();
 		
 		try {
-			String scrFile = ((TakesScreenshot) SetupEnviroment.driver).getScreenshotAs(OutputType.BASE64);
-			extentTest.log(status, "Evidencia: ", 
+			String scrFile = ((TakesScreenshot) setup.getDriver()).getScreenshotAs(OutputType.BASE64);
+			extentTest.log(status, strLog, 
 					MediaEntityBuilder
 					.createScreenCaptureFromBase64String(scrFile)
 					.build());
@@ -96,8 +97,7 @@ public class LogReport {
 	public static String efetuarPrintTela(String strLog) {
 		
 		String destination = null;
-		File scrFile = ((TakesScreenshot) SetupEnviroment.driver).getScreenshotAs(OutputType.FILE);
-		
+		File scrFile = ((TakesScreenshot) setup.getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
 			String strLogFormatado = Utils.formatarNomeLog(strLog);
 			destination = System.getProperty("user.dir") + Property.HTML_REPORTER_PATH + strLogFormatado + ".png";
@@ -113,5 +113,4 @@ public class LogReport {
 		
 		extentReport.flush();
 	}
-
 }

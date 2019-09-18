@@ -6,26 +6,30 @@ import java.io.IOException;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
-
+import br.com.b3.sinacor.reports.LogReport;
 
 public class SetupEnviroment {
 	
-	public static WiniumDriver driver;
-	public static DesktopOptions options;
-	public static WiniumDriverService service;
+	protected static WiniumDriver driver;
+	
+	private static DesktopOptions options;
+	
+	private static WiniumDriverService service;
 	
 	public WiniumDriver setupEnviroment() {
 		
 		File applicationPath  = new File(Property.APP_PATH);
 		File winiumDriverPath = new File(Property.WINIUM_PATH);
-		int port = Integer.parseInt(Property.WINIUM_PORT);
+		Integer port = Integer.parseInt(Property.WINIUM_PORT);
 		
 		options = new DesktopOptions();
 		options.setApplicationPath(applicationPath.getAbsolutePath());
+		options.setDebugConnectToRunningApp(false);
+		options.setLaunchDelay(2);
 		
 		File driverPath = winiumDriverPath.getAbsoluteFile();
 		if(!driverPath.exists())
-			new Exception("O driver no path informado (" + driverPath + ") n�o existe!");
+			LogReport.fail("O driver no path informado (" + driverPath + ") nao existe!");
 		
 		try {
 			service = new WiniumDriverService.Builder()
@@ -47,5 +51,22 @@ public class SetupEnviroment {
 		
 		return driver;
 	}
-
+	
+	public void driverClose() {
+		
+		try {
+			driver.close();
+		}catch(Exception e) {
+			try {
+				Runtime.getRuntime().exec("TASKKILL /F /IM calculator.exe");
+			} catch (IOException e1) {
+				System.out.println("[FALHA]Falha ao fechar o driver [" + e.getMessage() + "]");
+			}
+		}
+	}	
+	
+	public void serviceStop() {
+		
+		service.stop();
+	}	
 }
