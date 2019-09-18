@@ -80,7 +80,7 @@ public class BasePage extends SetupEnviroment {
 	 * 
 	 * @param name Nome do elemento
 	 */
-	protected void clickElementByName(String name) {
+	protected void clickElementByMapElements(String name) {
 		
 		try {
 			element = getElement(name);

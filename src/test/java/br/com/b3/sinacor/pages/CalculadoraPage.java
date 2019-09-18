@@ -1,10 +1,17 @@
 package br.com.b3.sinacor.pages;
 
+import java.util.Objects;
+
 import org.openqa.selenium.By;
 
 import br.com.b3.sinacor.util.Utils;
 
 public class CalculadoraPage extends BasePage {
+	
+	public CalculadoraPage() {
+		
+		this.addElement("btnMaximize", By.id("Maximize"));
+	}
 	
 	public void clicarNumero(String numero) {
 		

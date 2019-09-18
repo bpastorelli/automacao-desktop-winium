@@ -39,8 +39,8 @@ public class LogReport {
 			extentReport = new ExtentReports();
 			htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + Property.HTML_REPORTER_PATH + Property.HTML_REPORTER_NAME);
 			extentReport.attachReporter(htmlReporter);
-			htmlReporter.config().setDocumentTitle("Title of the Report Comes here");
-			htmlReporter.config().setReportName("Name of the Report Comes here");
+			htmlReporter.config().setDocumentTitle(Property.HTML_REPORTER_TITLE);
+			htmlReporter.config().setReportName(Property.HTML_REPORTER_PAGE_NAME);
 			htmlReporter.config().setTheme(Theme.STANDARD);
 		}
 		
@@ -75,7 +75,7 @@ public class LogReport {
 		
 		ExtentTest extentTest = getExtentTest();
 		extentTest.log(Status.PASS, message);
-		logPrint(message, Status.PASS);
+		logPrint(message, Status.INFO);
 		assertTrue(true);
 	}
 

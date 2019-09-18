@@ -11,6 +11,8 @@ public abstract class Property {
 	public static String WINIUM_PORT;
 	public static String HTML_REPORTER_NAME;
 	public static String HTML_REPORTER_PATH;
+	public static String HTML_REPORTER_TITLE;
+	public static String HTML_REPORTER_PAGE_NAME;
 	
 	private static final String PROP_FILE_CONFIG = "src/test/resources/config.properties";
 	
@@ -31,6 +33,8 @@ public abstract class Property {
 			WINIUM_PORT        = properties.getProperty("winiumDriver.port");
 			HTML_REPORTER_NAME = properties.getProperty("extent.report.name");
 			HTML_REPORTER_PATH = properties.getProperty("extent.report.path");
+			HTML_REPORTER_TITLE = properties.getProperty("extent.report.title");
+			HTML_REPORTER_PAGE_NAME = properties.getProperty("extent.report.page.name");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
