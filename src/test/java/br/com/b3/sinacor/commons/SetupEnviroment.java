@@ -24,13 +24,16 @@ public class SetupEnviroment {
 		File winiumDriverPath = new File(Utils.getFilePath("driver/" + Property.WINIUM_PATH));
 		Integer port = Integer.parseInt(Property.WINIUM_PORT);
 		
+		if(!applicationPath.exists())
+			System.out.println("[FAIL]O aplicativo não existe no no path " + applicationPath);
+		
 		options = new DesktopOptions();
-		options.setApplicationPath(applicationPath.getAbsolutePath());
+		options.setApplicationPath(applicationPath.toString());
 		options.setDebugConnectToRunningApp(false);
 		options.setLaunchDelay(2);
 		
 		if(!winiumDriverPath.exists())
-			LogReport.fail("O driver no path informado (" + winiumDriverPath + ") nao existe!");
+			System.out.println("[FAIL]O driver no path informado (" + winiumDriverPath + ") nao existe!");
 		
 		try {
 			service = new WiniumDriverService.Builder()
@@ -45,7 +48,7 @@ public class SetupEnviroment {
 			System.out.println("Falha ao abrir o driver (" + e.getMessage() +")");
 		}
 		
-		System.out.println("**Driver iniciado com sucesso!");
+		System.out.println("[SUCESS]Driver iniciado com sucesso!");
 		return driver;
 	}
 	
