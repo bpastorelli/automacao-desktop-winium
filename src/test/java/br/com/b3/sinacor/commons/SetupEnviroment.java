@@ -45,6 +45,7 @@ public class SetupEnviroment {
 			System.out.println("Falha ao abrir o driver (" + e.getMessage() +")");
 		}
 		
+		System.out.println("**Driver iniciado com sucesso!");
 		return driver;
 	}
 	
