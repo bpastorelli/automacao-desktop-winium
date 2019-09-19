@@ -1,6 +1,7 @@
 package br.com.b3.sinacor.regression;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -17,7 +18,7 @@ public class BaseTestCase {
 	public static SetupEnviroment setup = new SetupEnviroment();
 	
 	@BeforeClass
-	public static void beforeClass() throws IOException {
+	public static void beforeClass() throws IOException, URISyntaxException {
 		
 		Property.loadProperties();
 		setup.setupEnviroment();

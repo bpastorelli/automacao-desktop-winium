@@ -3,10 +3,13 @@ package br.com.b3.sinacor.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import br.com.b3.sinacor.commons.SetupEnviroment;
+import br.com.b3.sinacor.reports.LogReport;
 
 public class Utils {
 	
@@ -116,4 +119,17 @@ public class Utils {
         
         return edition;
     }
+    
+    public static URI getFilePath(String file) {
+    	
+    	URI path = null;
+    	
+    	try {
+			return Thread.currentThread().getContextClassLoader().getResource(file).toURI();
+		} catch (URISyntaxException e) {
+			LogReport.fail("Falha ao obter o path para o arquivo " + file);
+		}
+    	return path;
+    }
+    
 }
