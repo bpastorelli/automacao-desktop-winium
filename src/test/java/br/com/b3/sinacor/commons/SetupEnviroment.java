@@ -29,13 +29,12 @@ public class SetupEnviroment {
 		options.setDebugConnectToRunningApp(false);
 		options.setLaunchDelay(2);
 		
-		File driverPath = winiumDriverPath.getAbsoluteFile();
-		if(!driverPath.exists())
-			LogReport.fail("O driver no path informado (" + driverPath + ") nao existe!");
+		if(!winiumDriverPath.exists())
+			LogReport.fail("O driver no path informado (" + winiumDriverPath + ") nao existe!");
 		
 		try {
 			service = new WiniumDriverService.Builder()
-					.usingDriverExecutable(driverPath)
+					.usingDriverExecutable(winiumDriverPath)
 					.usingPort(port)
 					.withVerbose(true)
 					.withSilent(false)
@@ -43,7 +42,7 @@ public class SetupEnviroment {
 			service.start();
 			driver = new WiniumDriver(service, options);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Falha ao abrir o driver (" + e.getMessage() +")");
 		}
 		
 		return driver;
