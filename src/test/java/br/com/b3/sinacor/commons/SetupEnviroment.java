@@ -2,11 +2,13 @@ package br.com.b3.sinacor.commons;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
 import br.com.b3.sinacor.reports.LogReport;
+import br.com.b3.sinacor.util.Utils;
 
 public class SetupEnviroment {
 	
@@ -16,10 +18,10 @@ public class SetupEnviroment {
 	
 	private static WiniumDriverService service;
 	
-	public WiniumDriver setupEnviroment() {
+	public WiniumDriver setupEnviroment() throws URISyntaxException {
 		
 		File applicationPath  = new File(Property.APP_PATH);
-		File winiumDriverPath = new File(Property.WINIUM_PATH);
+		File winiumDriverPath = new File(Utils.getFilePath("driver/" + Property.WINIUM_PATH));
 		Integer port = Integer.parseInt(Property.WINIUM_PORT);
 		
 		options = new DesktopOptions();
