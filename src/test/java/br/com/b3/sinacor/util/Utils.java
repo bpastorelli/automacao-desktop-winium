@@ -1,5 +1,8 @@
 package br.com.b3.sinacor.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -66,5 +69,51 @@ public class Utils {
     	}
     	
     	return nome;
+    }
+    
+    public static String getSystemVersion() {
+    	
+        Runtime rt; 
+        Process pr; 
+        BufferedReader in;
+        String line = "";
+        String edition = "";
+        String fullOSName = "";
+        final String   SEARCH_TERM = "OS Name:";
+        final String[] EDITIONS = { "Basic", "Home", 
+                                    "Professional", "Enterprise" };
+
+        try
+        {
+           rt = Runtime.getRuntime();
+           pr = rt.exec("SYSTEMINFO");
+           in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+
+           //add all the lines into a variable
+           while((line=in.readLine()) != null)
+           {
+              if(line.contains(SEARCH_TERM)) //found the OS you are using
+              {
+               //extract the full os name
+                 fullOSName = line.substring(line.lastIndexOf(SEARCH_TERM) 
+                 + SEARCH_TERM.length(), line.length()-1);
+                 break;
+              } 
+           }
+
+           //extract the edition of windows
+           for(String s : EDITIONS)
+           {
+              if(fullOSName.trim().contains(s))
+              {
+                 edition = s;
+              }
+           }
+
+        } catch(IOException ioe) {   
+             System.err.println(ioe.getMessage());
+        }
+        
+        return edition;
     }
 }

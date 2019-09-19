@@ -1,7 +1,5 @@
 package br.com.b3.sinacor.pages;
 
-import java.util.Objects;
-
 import org.openqa.selenium.By;
 
 import br.com.b3.sinacor.util.Utils;
