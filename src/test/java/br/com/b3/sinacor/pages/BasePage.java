@@ -84,7 +84,8 @@ public class BasePage extends SetupEnviroment {
 		
 		try {
 			element = getElement(name);
-			element.click();	
+			element.click();
+			LogReport.info("Clicar no elemento " + name);
 		}catch(Exception e) {
 			LogReport.fail("[FALHA]Falha ao clicar no elemento " + element.getTagName() + ".");
 		}
@@ -99,6 +100,7 @@ public class BasePage extends SetupEnviroment {
 		
 		try {
 			findElement(by).click();
+			LogReport.info("Clicar no elemento " + by);
 		}catch(Exception e) {
 			LogReport.fail("[FALHA]Falha ao clicar no elemento " + by.toString() + ".");
 		}		
@@ -114,6 +116,7 @@ public class BasePage extends SetupEnviroment {
 		try {
 			element = getElement(name);
 			new Actions(driver).moveToElement(element).click().perform();
+			LogReport.info("Mover o foco e clicar no elemento " + name);
 		}catch(Exception e) {
 			LogReport.fail("[FALHA]Falha ao clicar no elemento " + element.getTagName() + ".");
 		}

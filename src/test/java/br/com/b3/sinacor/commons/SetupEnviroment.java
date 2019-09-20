@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
-import br.com.b3.sinacor.reports.LogReport;
+
 import br.com.b3.sinacor.util.Utils;
 
 public class SetupEnviroment {
@@ -24,18 +24,20 @@ public class SetupEnviroment {
 		File winiumDriverPath = new File(Utils.getFilePath("driver/" + Property.WINIUM_PATH));
 		Integer port = Integer.parseInt(Property.WINIUM_PORT);
 		
+		if(!applicationPath.exists())
+			System.out.println("[FAIL]O aplicativo não existe no no path " + applicationPath);
+		
 		options = new DesktopOptions();
-		options.setApplicationPath(applicationPath.getAbsolutePath());
+		options.setApplicationPath(applicationPath.toString());
 		options.setDebugConnectToRunningApp(false);
 		options.setLaunchDelay(2);
 		
-		File driverPath = winiumDriverPath.getAbsoluteFile();
-		if(!driverPath.exists())
-			LogReport.fail("O driver no path informado (" + driverPath + ") nao existe!");
+		if(!winiumDriverPath.exists())
+			System.out.println("[FAIL]O driver no path informado (" + winiumDriverPath + ") nao existe!");
 		
 		try {
 			service = new WiniumDriverService.Builder()
-					.usingDriverExecutable(driverPath)
+					.usingDriverExecutable(winiumDriverPath)
 					.usingPort(port)
 					.withVerbose(true)
 					.withSilent(false)
@@ -43,9 +45,10 @@ public class SetupEnviroment {
 			service.start();
 			driver = new WiniumDriver(service, options);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Falha ao abrir o driver (" + e.getMessage() +")");
 		}
 		
+		System.out.println("[SUCESS]Driver iniciado com sucesso!");
 		return driver;
 	}
 	
