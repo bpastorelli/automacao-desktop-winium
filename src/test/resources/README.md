@@ -16,7 +16,7 @@ Clicar em "Run"
 
 Abrir o prompt comando e digitar o seguinte comando:
 
-ssh -keygen
+ssh-keygen
 
 Informar um usuario e <enter>
 Informar uma senha e <enter>

@@ -132,4 +132,13 @@ public class Utils {
     	return path;
     }
     
+    public static boolean isNumeric(String strNum) {
+        try {
+            Double.parseDouble(strNum);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
+    }
+    
 }
