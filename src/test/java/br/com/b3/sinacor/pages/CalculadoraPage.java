@@ -13,19 +13,26 @@ public class CalculadoraPage extends BasePage {
 	
 	public void clicarNumero(String numero) {
 		
-		if(numero.length() > 1) {
-			for (int i = 0; i < numero.length(); i++) {
-				char c = numero.charAt(i);
-				clickElement(By.name(Utils.convertNumeroToNome(String.valueOf(c))));
+		if(Utils.isNumeric(numero)) {
+			if(numero.length() > 1) {
+				for (int i = 0; i < numero.length(); i++) {
+					char c = numero.charAt(i);
+					clickElement(By.name(Utils.convertNumeroToNome(String.valueOf(c))));
+				}
+			} else {
+				clickElement(By.name(Utils.convertNumeroToNome(numero)));
 			}
-		} else {
-			clickElement(By.name(Utils.convertNumeroToNome(numero)));
 		}
 	}
 	
-	public void clicarSinalAdicao(String sinal) {
+	public void clicarSinal(String sinal) {
 		
 		clickElement(By.name(sinal));
+	}
+	
+	public void clicarOpcao(String opcao) {
+		
+		clickElement(By.name(opcao));
 	}
 	
 	public String retornaValorDisplay(String resultado) {

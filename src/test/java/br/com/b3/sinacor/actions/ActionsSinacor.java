@@ -14,9 +14,14 @@ public class ActionsSinacor {
 		calculadoraPage.clicarNumero(numero);
 	}
 	
+	public void digitarOpcao(String opcao) {
+		
+		calculadoraPage.clicarOpcao(opcao);
+	}
+	
 	public void digitarSinal(String sinal) {
 		
-		calculadoraPage.clicarSinalAdicao(sinal);
+		calculadoraPage.clicarSinal(sinal);
 	}
 	
 	public void validarResultado(String resultado, String operacao) {

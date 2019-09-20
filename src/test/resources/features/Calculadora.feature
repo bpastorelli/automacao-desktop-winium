@@ -16,6 +16,7 @@ Feature: Testando automacao Desktop com Winium
   @calculadora_examples
   Scenario Outline: Testar calculos da Calculadora
   	Given Que eu quero testar "Calculos de <operacao>"
+  	And Que eu digito a opcao Limpar 
    	And Que eu digito o numero <numero1>
    	And Que eu digito o sinal de <operacao>
    	And Que eu digito o numero <numero2>
@@ -28,3 +29,4 @@ Feature: Testando automacao Desktop com Winium
     	| Menos           | 132      | 10      | 122       |
     	| Dividir por     | 100      | 10      | 10        |
     	| Multiplicar por | 100      | 2       | 200       |
+			| Raiz quadrada   | 25       | -       | 5         |
