@@ -91,7 +91,6 @@ public class LogReport {
 		
 		ExtentTest extentTest = getExtentTest();
 		extentTest.log(Status.INFO, message);
-		logPrint(message, Status.INFO);
 	}
 	
 	public static String efetuarPrintTela(String strLog) {

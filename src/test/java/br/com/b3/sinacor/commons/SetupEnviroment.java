@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
-import br.com.b3.sinacor.reports.LogReport;
+
 import br.com.b3.sinacor.util.Utils;
 
 public class SetupEnviroment {
